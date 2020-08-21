@@ -9,20 +9,20 @@ function preload()
 }
 
 function setup() {
-  createCanvas(1400,800);
+  createCanvas(1000,800);
   database=firebase.database();
-  dog=createSprite(250,250,20,20);
+  dog=createSprite(800,250,20,20);
   dog.addImage(dogStanding);
   dog.scale=0.2
   foodStock=database.ref('Food');
   foodStock.on("value",readStock);
 
   feed=createButton("Feed the dog");
-  feed.position(700,95);
+  feed.position(900,95);
   feed.mousePressed(feedDog);
 
   addFood=createButton("Add Food");
-  addFood.position(800,95);
+  addFood.position(1000,95);
   addFood.mousePressed(addFoods);
   
 }
@@ -38,9 +38,9 @@ if(keyWentDown(UP_ARROW)){
 textSize(15);
 fill('White');
 stroke(1);
-text('Note: Press the UP_ARROW Key To Feed Drago Milk!',30,50);
+//text('Note: Press the UP_ARROW Key To Feed Drago Milk!',30,60);
 drawSprites();
-text('Food Remaining:'+foodS,100,120)
+//text('Food Remaining:'+foodS,100,120)
 
 fedTime=database.ref('FeedTime');
 fedTime.on("value",function(data){
