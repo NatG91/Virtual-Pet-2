@@ -1,5 +1,6 @@
 //Create variables here
 var dog,happyDog,database,foodS,foodStock
+var foodStock,lastFed
 
 function preload()
 {
@@ -24,12 +25,18 @@ function setup() {
   addFood=createButton("Add Food");
   addFood.position(1000,95);
   addFood.mousePressed(addFoods);
+
+  foodObject=new Food();
   
 }
 
 
 function draw() {  
+
 background(46,139,87);
+
+foodObject.display();
+
 if(keyWentDown(UP_ARROW)){
   writeStock(foodS);
   dog.addImage(happyDog);
@@ -81,9 +88,9 @@ x=0;
 function feedDog(){
   dog.addImage(happyDog);
 
-  foodObj.updateFoodStock(foodObj.getFoodStock()-1);
+  foodObject.updateFoodStock(foodObject.getFoodStock()-1);
   database.ref('/').update({
-    Food:foodObj.getFoodStock(),
+    Food:foodObject.getFoodStock(),
     FeedTime:hour()
   })
 }

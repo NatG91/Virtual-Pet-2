@@ -1,11 +1,31 @@
 class Food {
 
 constructor(){
-    var foodStock,lastFed
+this.lastFed=0
+   this.foodStock=0
+this.image=loadImage('images/Milk.png');
 }
-getFoodstock(){
+
+updateFoodStock(foodStock){
+this.foodStock=foodStock
 
 }
+
+getLastFed(lastFed){
+  this.lastFed=lastFed
+}
+
+deductFoodStock(){
+
+if(this.foodStock>0){
+this.foodStock=this.foodStock-1
+}
+}
+
+getFoodStock(){
+return(this.foodStock);
+}
+
 display(){
     var x = 80,y = 100;
 
