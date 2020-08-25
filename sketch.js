@@ -100,3 +100,4 @@ function addFoods(){
     Food:foodS
   })
 }
+function readStock(data){ foodS=data.val(); foodObject.updateFoodStock(foodS) } foodObject.updateFoodStock(foodS)
